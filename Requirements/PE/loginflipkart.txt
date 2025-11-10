@@ -1,0 +1,27 @@
+package com.krushna;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test {
+    public static void main(String[] args) throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\RUSHIKESH\\Downloads\\chromedriver-win64 (2)\\chromedriver-win64\\chromedriver.exe");
+
+        WebDriver driver = new ChromeDriver();
+        System.out.println("Browser launched successfully");
+
+        driver.get("https://www.flipkart.com/");
+        driver.manage().window().maximize();
+        System.out.println("Flipkart opened successfully");
+
+        Thread.sleep(2000); // Wait for popup to load
+
+        // Enter mobile number
+        driver.findElement(By.xpath("//*[@class=\"-dOa_b L_FVxe\"]")).click();
+        
+        driver.findElement(By.xpath("//input[@class='r4vIwl BV+Dqf']")).sendKeys("9022614495");
+        System.out.println("Mobile number entered successfully");
+        
+        driver.findElement(By.xpath("//*[contains(@class,'QqFHMw')]")).click();
+        System.out.println("Button clicked successfully!");
