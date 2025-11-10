@@ -1,0 +1,31 @@
+package com;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenChrome {
+    public static void main(String[] args) {
+
+        // set the property for ChromeDriver
+        System.setProperty("webdriver.chrome.driver",
+            "C:\\Users\\HP\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+
+        // launch Chrome browser
+        WebDriver driver = new ChromeDriver();
+        System.out.println("Successfully launched the browser");
+
+        try {
+            // Open application
+            driver.get("https://www.amazon.com");
+            System.out.println("Successfully launched the application");
+
+            // Click on search box and enter text
+            driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Mobiles");
+            driver.findElement(By.id("nav-search-submit-button")).click();
+            System.out.println("Searched for Mobiles");
+        } catch (Exception e) {
+            System.out.println("Element not found or error: " + e.getMessage());
+        }
+    }
+}
